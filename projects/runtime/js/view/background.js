@@ -67,7 +67,7 @@ var background = function (window) {
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png');
             tree.x = 0;
-            tree.y = 65;
+            tree.y = groundY - 230;
             background.addChild(tree);
             
         } // end of render function - DO NOT DELETE
@@ -83,7 +83,7 @@ var background = function (window) {
             
             // TODO 4: Part 2 - Move the tree!
             tree.x = tree.x - 1;
-            if(tree.x < 200) {
+            if(tree.x < -250) {
                 tree.x = canvasWidth;
             }
             
