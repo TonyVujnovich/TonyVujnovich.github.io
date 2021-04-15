@@ -24,7 +24,8 @@ var background = function (window) {
         
         // container which will be returned
         var background;
-        
+        var tree;
+        var buildings = [];
         // ANIMATION VARIABLES HERE:
         
      
@@ -41,14 +42,14 @@ var background = function (window) {
             
             // TODO: 3 - Add a moon and starfield
             var moon = draw.bitmap('img/moon.png');
-            moon.x = 300;
-            moon.y = 200;
-            moon.scaleX = 10.0;
-            moon.scaleY = 10.0;
+            moon.x = 1150;
+            moon.y = 25;
+            moon.scaleX = 0.5;
+            moon.scaleY = 0.5;
             background.addChild(moon);
             
-            for(var i = 0; i <= 100; i++){
-                var circle = draw.circle(10,'white','LightGray',2);
+            for(var i = 0; i <= 50; i++){
+                var circle = draw.circle(10,'white','yellow',2);
                 circle.x = canvasWidth*Math.random();
                 circle.y = groundY*Math.random();
                 background.addChild(circle);
@@ -66,7 +67,7 @@ var background = function (window) {
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png');
             tree.x = 0;
-            tree.y = 0;
+            tree.y = 65;
             background.addChild(tree);
             
         } // end of render function - DO NOT DELETE
@@ -81,8 +82,8 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x + 1;
-            if(tree.x < -200) {
+            tree.x = tree.x - 1;
+            if(tree.x < 200) {
                 tree.x = canvasWidth;
             }
             
