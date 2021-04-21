@@ -25,14 +25,14 @@ var background = function (window) {
         // container which will be returned
         var background;
         var tree;
-        var buildings = [];
-        // ANIMATION VARIABLES HERE:
         
+        // ANIMATION VARIABLES HERE:
+        var buildings = [];
      
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
         function getRandomInt(min, max) {
-            min = Math.ceil(20);
+            min = Math.ceil(40);
             max = Math.floor(350);
             return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
         }
@@ -54,13 +54,13 @@ var background = function (window) {
             background.addChild(moon);
             
             for(var i = 0; i <= 50; i++){
-                var circle = draw.circle(10,'white','yellow',2);
+                var circle = draw.circle(3,'white','white',2);
                 circle.x = canvasWidth*Math.random();
                 circle.y = groundY*Math.random();
                 background.addChild(circle);
             }
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            for(var i=0;i<10;++i) {
+            for(var i=0;i<7;++i) {
                 var buildingHeight = getRandomInt();
                 var building = draw.rect(75,buildingHeight,'LightGray','Black',1);
                 building.x = 200*i;
@@ -87,20 +87,20 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x - 1;
+            tree.x = tree.x - 3;
             if(tree.x < -250) {
                 tree.x = canvasWidth;
             }
             
             // TODO 5: Part 2 - Parallax
             for (var i = 0; i < buildings.length; i++) {
-                var eachElement = buildings[i];
-                
-            }
-            buildings.x = buildings.x - 1;
-            if(buildings.x < -250) {
-                buildings.x = canvasWidth;
-            }
+                var building = buildings[i];
+                building.x = building.x - 1;
+                if(building.x < -100) {
+                building.x = canvasWidth;
+            }                
+        }
+            
         } // end of update function - DO NOT DELETE
         
         

@@ -31,7 +31,7 @@ var level01 = function (window) {
         var damageFromObstacle = 10;
         var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); 
         sawBladeHitZone.x = 400;
-        sawBladeHitZone.y = 100;
+        sawBladeHitZone.y = sawBladeHitZone;
         game.addGameItem(sawBladeHitZone);    
         // DO NOT EDIT CODE BELOW HERE
     }
