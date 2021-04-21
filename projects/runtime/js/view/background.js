@@ -31,6 +31,11 @@ var background = function (window) {
      
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
+        function getRandomInt(min, max) {
+            min = Math.ceil(20);
+            max = Math.floor(350);
+            return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+        }
         function render() {
             background.removeAllChildren();
 
@@ -55,8 +60,8 @@ var background = function (window) {
                 background.addChild(circle);
             }
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            for(var i=0;i<5;++i) {
-                var buildingHeight = 300;
+            for(var i=0;i<10;++i) {
+                var buildingHeight = getRandomInt();
                 var building = draw.rect(75,buildingHeight,'LightGray','Black',1);
                 building.x = 200*i;
                 building.y = groundY-buildingHeight;
@@ -88,11 +93,14 @@ var background = function (window) {
             }
             
             // TODO 5: Part 2 - Parallax
-            for (var i = 0; i < myArray.length; i++) {
-                var eachElement = myArray[i];
-                building.x
+            for (var i = 0; i < buildings.length; i++) {
+                var eachElement = buildings[i];
+                
             }
-
+            buildings.x = buildings.x - 1;
+            if(buildings.x < -250) {
+                buildings.x = canvasWidth;
+            }
         } // end of update function - DO NOT DELETE
         
         
